@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title>Wall for you any.</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	</head>
+	<body>
+		<div>
+			<h1><a href="">Project Wall</a></h1>
+		</div>
+		<table>
+			<thead>
+			<tr>
+				<th>기분</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>날짜</th>
+			</tr>
+			</thead>
+			<tbody>
+				{%	for post in posts %}
+				<tr>
+					<td>{{ post.feel }}</td>
+					<td>{{ post.title }}</td>
+					<td>{{ post.author }}</td>
+					<td>{{ post.create_date }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+	</body>
+</html>
