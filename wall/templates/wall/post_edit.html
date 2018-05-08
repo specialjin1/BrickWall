@@ -1,0 +1,11 @@
+{% extends 'wall/base.html' %}
+
+{% block content %}
+	<h1>New post</h1>
+	<form method="POST" class="post-form">{% csrf_token %}
+		{{ form.as_p }}
+		<!-- <script src='https://www.google.com/recaptcha/api.js'></script>
+		<div class="g-recaptcha" data-sitekey="6LeuvVcUAAAAALCNW-zlVP8skAzufmDJUlP6VFy4"></div> -->
+		<button type="submit" class="save btn btn-default">Save</button>
+	</form>
+{% endblock %}

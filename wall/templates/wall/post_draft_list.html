@@ -1,0 +1,26 @@
+{% extends 'wall/base.html' %}
+
+{% block content %}
+	<div class="post">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>기분</th>
+					<th>제목</th>
+					<th>작성자</th>
+					<th>게시하기</th>
+				</tr>
+			</thead>
+			<tbody>
+			{%	for post in posts %}
+				<tr>
+					<td>{{ post.feel }}</td>
+					<td><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></td>
+					<td>{{ post.author }}</td>
+					<td><span><a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">등록</a></span></td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}
