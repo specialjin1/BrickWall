@@ -2,6 +2,7 @@ import datetime
 
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 class Emotion(models.Model):
 	emotion = models.CharField(max_length=15)
@@ -20,6 +21,18 @@ class Post(models.Model):
 	def publish(self):
 		self.published_date = timezone.now()
 		self.save()
+
+	def was_published_recently(self):
+		now = timezone.now()
+		return now - datetime.timedelta(days=1) <= self.published_date <= now
+
+	def was_published(self):
+		if self.published_date is None:
+			return False
+		return True
+	was_published.admin_order_dield = 'published_date'
+	was_published.boolean = True
+	was_published.short_description = 'Was published?'
 
 	def __str__(self):
 		return self.title
