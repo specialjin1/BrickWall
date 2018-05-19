@@ -12,4 +12,8 @@ urlpatterns = [
 	url(r'^post/(?P<pk>\d+)/comment/$', views.add_comment_to_post, name='add_comment_to_post'),
 	url(r'^accounts/signup/$', views.signup, name='signup'),
 	url(r'^join/$', views.signup, name='join'),
+	url(r'^main/$', views.main, name='main'),
+	url(r'^about/$', views.about, name='about'),
+	url(r'^post/$', views.post, name='post'),
+	url(r'^contact/$', views.contact, name='contact'),	
 ]

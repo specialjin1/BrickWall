@@ -78,11 +78,20 @@ def signup(request):
 		form = UserCreationForm(request.POST)
 		if form.is_valid():
 			new_user = form.save()
-			#username = form.cleaned_data.get('username')
-			#raw_password = form.cleaned_data.get('password')
-			#user = authenticate(username=username, password=raw_password,backend='django.contrib.auth.backends.ModelBackend')
 			login(request, new_user)
 			return redirect('post_list')
 	else :
 		form = UserCreationForm()
 	return render(request, 'registration/signup.html', {'form': form})
+
+def main(request):
+	return render(request, 'wall/index.html')
+
+def about(request):
+	return render(request, 'wall/about.html')
+
+def post(request):
+	return render(request, 'wall/post.html')
+
+def contact(request):
+	return render(request, 'wall/contact.html')
